@@ -6,6 +6,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../reduce
 const Posts = ({profilePage, dispatch}) => {
 
     const {postData, newPostText} = profilePage;
+    console.log(profilePage);
 
     const posts = postData.map((item) => {
         const {avatar, post, likesCount} = item;
