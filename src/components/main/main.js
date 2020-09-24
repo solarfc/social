@@ -7,13 +7,13 @@ import Posts from "../posts/posts";
 
 
 const Main = ({state, dispatch}) => {
-    const {profilePage, messagePage} = state;
+    const {profilePage, dialogPage} = state;
 
     return (
         <main>
             <Switch>
                 <Route path="/profile" render={() => {return <MyProfile name="Vlad"/>}}></Route>
-                <Route path="/dialogs" render={() => {return <Dialogs messagePage={messagePage}  dispatch={dispatch}/>}}></Route>
+                <Route path="/dialogs" render={() => {return <Dialogs dialogPage={dialogPage} dispatch={dispatch}/>}}></Route>
                 <Route path="/posts" render={() => {return <Posts profilePage={profilePage} dispatch={dispatch}/>}}></Route>
             </Switch>
         </main>

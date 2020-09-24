@@ -1,17 +1,5 @@
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
-const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-};
-
-const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        payload: text
-    }
-};
+const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
     dialogData: [
@@ -27,25 +15,42 @@ let initialState = {
     newMessageText: ''
 };
 
-
-const dialogsReducer = (state = initialState, action) => {
-    if(action.type === ADD_MESSAGE) {
-        let newMessage = {
-            id: 5,
-            message: state.messagePage.newMessageText
-        };
-        state.messagePage.messageData.push(newMessage);
-        state.messagePage.newMessageText = '';
-    } else if(action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        state.messagePage.newMessageText = action.payload;
-    } else {
-        return state;
+const updateMessageText = (text) => {
+    return {
+        type: 'UPDATE_MESSAGE_TEXT',
+        payload: text
     }
 };
 
-export default dialogsReducer;
+const sendMessage = () => {
+    return {
+        type: 'SEND_MESSAGE'
+    }
+};
+
+const dialogReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case UPDATE_MESSAGE_TEXT:
+            state.newMessageText = action.payload;
+            return state;
+            break;
+        case SEND_MESSAGE:
+            let newMessage = {
+                id: 100,
+                message : state.newMessageText
+            };
+            state.messageData.push(newMessage);
+            state.newMessageText = '';
+            return state;
+            break;
+        default:
+            return state;
+    }
+};
+
+export default dialogReducer;
 
 export {
-    addMessageActionCreator,
-    updateNewMessageTextActionCreator
-}
+    updateMessageText,
+    sendMessage
+};

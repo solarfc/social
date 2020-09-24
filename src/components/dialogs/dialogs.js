@@ -2,10 +2,10 @@ import React from "react";
 import dialogs from "./dialogs.module.css";
 import Dialog from "./dialog/dialog";
 import Message from "./message/message";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../reducers/dialogs-reducer";
+import {updateMessageText, sendMessage} from "../../reducers/dialogs-reducer";
 
-const Dialogs = ({messagePage, dispatch}) => {
-    const {dialogData, messageData, newMessageText} = messagePage;
+const Dialogs = ({dialogPage, dispatch}) => {
+    const {dialogData, messageData, newMessageText} = dialogPage;
 
     const dialogz = dialogData.map((item) => {
         const {id, name} = item;
@@ -23,12 +23,12 @@ const Dialogs = ({messagePage, dispatch}) => {
 
     const addMessages = (e) => {
         e.preventDefault();
-        dispatch(addMessageActionCreator())
+        dispatch(sendMessage());
     };
 
     const updateMessagesText = (e) => {
         let text = e.target.value;
-        dispatch(updateNewMessageTextActionCreator(text));
+        dispatch(updateMessageText(text));
     };
 
     return (
