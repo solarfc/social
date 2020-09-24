@@ -6,8 +6,8 @@ import Dialogs from "../dialogs";
 import Posts from "../posts/posts";
 
 
-const Main = ({state, dispatch}) => {
-    const {profilePage, messagePage} = state;
+const Main = ({profilePage, messagePage, dispatch}) => {
+    // const {profilePage, messagePage} = state;
 
     return (
         <main>
