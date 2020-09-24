@@ -5,8 +5,8 @@ import sidebarReducer from "./sidebar-reducer";
 const reducer = (state, action) => {
     return {
         profilePage: profileReducer(state, action),
-        messagePage: dialogsReducer(state, action),
-        sidebar: sidebarReducer(state, action)
+        // messagePage: dialogsReducer(state, action),
+        // sidebar: sidebarReducer(state, action)
     }
 };
 
