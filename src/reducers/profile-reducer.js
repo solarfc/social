@@ -19,22 +19,26 @@ let initialState = {
         {avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg', post: 'Hi, a\'m Avatar', likesCount: 20},
         {avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg', post: 'First Post', likesCount: 55}
     ],
-    newPostText: 'dsadasda'
+    newPostText: ''
 };
+
+console.log(initialState);
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let newPost = {
-                avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg',
-                post: state.newPostText,
-                likesCount: 0
-            };
-            state.postData.unshift(newPost);
-            state.newPostText = '';
+            console.log(state.profilePage.newPostText);
+            // let newPost = {
+            //     avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg',
+            //     post: state.profilePage.newPostText,
+            //     likesCount: 0
+            // };
+            // state.profilePage.postData.unshift(newPost);
+            // state.profilePage.newPostText = '';
             break;
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.payload;
+            console.log(action.payload);
+            state.profilePage.newPostText = action.payload;
             break;
         default:
             return state;

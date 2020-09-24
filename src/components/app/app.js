@@ -4,13 +4,14 @@ import Header from "../header";
 import Aside from "../aside";
 import Main from "../main";
 
-const App = ({state : {profilePage, messagePage}, dispatch}) => {
+const App = ({state, dispatch}) => {
+
     return (
         <div>
             <Header />
             <section className="main-content">
                 <Aside />
-                <Main  profilePage={profilePage} messagePage={messagePage} dispatch={dispatch} />
+                <Main state={state} dispatch={dispatch} />
             </section>
         </div>
     );
