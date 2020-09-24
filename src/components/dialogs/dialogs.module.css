@@ -1,0 +1,16 @@
+.item {
+    color: red;
+}
+
+.dialogs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialogItem {
+    width: 25%;
+}
+
+.messages {
+    width: 74%;
+}

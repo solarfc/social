@@ -1,0 +1,13 @@
+* {
+    font-family: Georgia, sans-serif;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.active {
+    color: gold;
+}

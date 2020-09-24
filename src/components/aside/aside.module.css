@@ -1,0 +1,22 @@
+aside {
+    width: 25%;
+    background: tomato;
+}
+
+aside ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+aside ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.item {
+    color: white;
+}
+
+.active {
+    color: gold;
+}
