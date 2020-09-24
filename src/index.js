@@ -8,6 +8,7 @@ import store from "./redux/redux-store"; // store из redux
 
 const state = store.getState();
 const {dispatch} = store;
+console.log(state.profilePage.newPostText);
 
 let rerenderEntireTree = () => {
     ReactDOM.render(

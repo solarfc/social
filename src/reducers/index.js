@@ -7,6 +7,7 @@ const reducer = (state, action) => {
         profilePage: profileReducer(state, action),
         messagePage: dialogsReducer(state, action),
         sidebar: sidebarReducer(state, action)
+
     }
 };
 
