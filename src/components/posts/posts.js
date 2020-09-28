@@ -1,10 +1,18 @@
 import React from "react";
 import "./post.css";
 import Post from "../post";
-import {addPostCreator, updatePostTextCreator} from "../../reducers/profile-reducer";
 
-const Posts = ({profilePage, dispatch}) => {
-    const {postData, postText} = profilePage;
+const Posts = ({postData, addPosts, postText, onChangePostText}) => {
+
+    const addPost = (e) => {
+        e.preventDefault();
+        addPosts();
+    };
+
+    const onPostChange = (e) => {
+        let text = e.target.value;
+        onChangePostText(text);
+    };
 
     const posts = postData.map((item) => {
         const {avatar, post, likesCount} = item;
@@ -13,21 +21,11 @@ const Posts = ({profilePage, dispatch}) => {
         );
     });
 
-    const addPosts = (e) => {
-        e.preventDefault();
-        dispatch(addPostCreator());
-    };
-
-    const onChangePostText = (e) => {
-        let text = e.target.value;
-        dispatch(updatePostTextCreator(text));
-    };
-
     return (
         <div>
             <h3>My Posts</h3>
-            <form className="add-post" onSubmit={addPosts}>
-                <textarea name="" id="" value={postText} onChange={onChangePostText} placeholder='Add new post' />
+            <form className="add-post" onSubmit={addPost}>
+                <textarea name="" id="" value={postText} onChange={onPostChange} placeholder='Add new post' />
                 <button type="submit" >Add Post</button>
             </form>
             <div className="all-posts">

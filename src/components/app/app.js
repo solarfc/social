@@ -4,14 +4,13 @@ import Header from "../header";
 import Aside from "../aside";
 import Main from "../main";
 
-const App = ({state, dispatch}) => {
-
+const App = () => {
     return (
         <div>
             <Header />
             <section className="main-content">
                 <Aside />
-                <Main state={state} dispatch={dispatch} />
+                <Main />
             </section>
         </div>
     );
