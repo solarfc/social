@@ -23,20 +23,21 @@ const addPostCreator = () => {
 };
 
 const profileReducer = (state = initialState, action) => {
+    let stateCopy = {...state};
+
     switch (action.type) {
         case UPDATE_POST_TEXT:
-            state.postText = action.payload;
-            return state;
-            break;
+            stateCopy.postText = action.payload;
+            return stateCopy;
         case ADD_POST:
-            state.postData.unshift({
+            stateCopy.postData = [...state.postData];
+            stateCopy.postData.unshift({
                 avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg',
                 post: state.postText,
                 likesCount: 0
             });
-            state.postText = '';
-            return state;
-            break;
+            stateCopy.postText = '';
+            return stateCopy;
         default:
             return state;
     }

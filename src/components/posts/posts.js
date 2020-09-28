@@ -2,7 +2,7 @@ import React from "react";
 import "./post.css";
 import Post from "../post";
 
-const Posts = ({postData, addPosts, postText, onChangePostText}) => {
+const Posts = ({profilePage: {postData, postText}, addPosts, onChangePostText}) => {
 
     const addPost = (e) => {
         e.preventDefault();

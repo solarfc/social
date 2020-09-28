@@ -2,62 +2,51 @@ import React from "react";
 import dialogs from "./dialogs.module.css";
 import Dialog from "./dialog/dialog";
 import Message from "./message/message";
-import {updateMessageText, sendMessage} from "../../reducers/dialogs-reducer";
-import {StoreConsumer} from "../store-context/store-context";
 
-const Dialogs = () => {
+const Dialogs = ({dialogPage: {dialogData, messageData, newMessageText}, sendMessage, updateMessageText}) => {
+
+    const addMessages = (e) => {
+        e.preventDefault();
+        sendMessage();
+    };
+
+    const updateMessagesText = (e) => {
+        let text = e.target.value;
+        updateMessageText(text);
+    };
+
+
+    const dialogz = dialogData.map((item) => {
+        const {id, name} = item;
+        return (
+            <Dialog key={id} id={id} name={name} />
+        );
+    });
+
+    const messages = messageData.map((item) => {
+        const {id, message} = item;
+        return (
+            <Message key={id} message={message} />
+        );
+    });
 
     return (
-        <StoreConsumer>
-            {
-                (store) => {
-                    const state = store.getState();
-                    const {dispatch} = store;
-                    const {dialogData, messageData, newMessageText} = state.dialogPage;
-                    const dialogz = dialogData.map((item) => {
-                        const {id, name} = item;
-                        return (
-                            <Dialog key={id} id={id} name={name} />
-                        );
-                    });
+        <div className={dialogs.dialogs}>
+            <div className={dialogs.dialogItem}>
+                {dialogz}
+            </div>
+            <div className={dialogs.messages}>
+                <div className="messages-item">
+                    {messages}
+                </div>
+                <form className="add-message" onSubmit={addMessages}>
+                    <textarea name="" id="" value={newMessageText} onChange={updateMessagesText} placeholder="Enter your message"></textarea>
+                    <button type="submit">send message</button>
+                </form>
+            </div>
+        </div>
 
-                    const messages = messageData.map((item) => {
-                        const {id, message} = item;
-                        return (
-                            <Message key={id} message={message} />
-                        );
-                    });
-
-                    const addMessages = (e) => {
-                        e.preventDefault();
-                        dispatch(sendMessage());
-                    };
-
-                    const updateMessagesText = (e) => {
-                        let text = e.target.value;
-                        dispatch(updateMessageText(text));
-                    };
-
-                    return (
-                        <div className={dialogs.dialogs}>
-                            <div className={dialogs.dialogItem}>
-                                {dialogz}
-                            </div>
-                            <div className={dialogs.messages}>
-                                <div className="messages-item">
-                                    {messages}
-                                </div>
-                                <form className="add-message" onSubmit={addMessages}>
-                                    <textarea name="" id="" value={newMessageText} onChange={updateMessagesText} placeholder="Enter your message"></textarea>
-                                    <button type="submit">send message</button>
-                                </form>
-                            </div>
-                        </div>
-                    )
-                }
-            }
-        </StoreConsumer>
-    )
+    );
 };
 
 export default Dialogs;
