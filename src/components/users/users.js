@@ -1,21 +1,20 @@
 import React from "react";
 import User from "../user";
+import * as axios from "axios";
 
 const Users = ({usersPage: {users}, setUsers, follow, unFollow}) => {
 
     if(users.length === 0) {
-        setUsers([
-            {id: 1, followed: true, fullName: 'Dmitry', status: 'I\'m a Boss', location: {city: "Odessa", country: 'Ukraine'}},
-            {id: 2, followed: true, fullName: 'Sasha', status: 'I\'m a BackEnd Developer', location: {city: "Odessa", country: 'Ukraine'}},
-            {id: 3, followed: false, fullName: 'Sveta', status: 'I\'m a Design Boss', location: {city: "Odessa", country: 'Ukraine'}},
-
-        ]);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                setUsers(response.data.items);
+            });
     }
 
     const userz = users.map((item) => {
-        const {id, followed, fullName, status, location: {city, country}} = item;
+        const {name, id, uniqueUrlName, photos: {small, large}, status, followed} = item;
         return (
-            <User key={id} id={id} followed={followed} fullName={fullName} status={status} city={city} country={country} follow={follow} unFollow={unFollow}/>
+            <User key={id} name={name} uniqueUrlName={uniqueUrlName} smallPhoto={small} largePhoto={large} status={status} followed={followed} follow={follow} unFollow={unFollow}/>
         )
     });
 

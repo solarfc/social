@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setUsers: (users) => {
-            console.log(users);
             dispatch(setUsersAC(users));
         },
         follow: (id) => {
