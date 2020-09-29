@@ -4,6 +4,7 @@ import "./main.css";
 import MyProfile from "../my-profile";
 import PostsContainer from "../posts";
 import DialogContainer from "../dialogs";
+import UsersContainer from "../users";
 
 
 const Main = () => {
@@ -14,6 +15,7 @@ const Main = () => {
                 <Route path="/profile" render={() => {return <MyProfile name="Vlad"/>}}></Route>
                 <Route path="/dialogs" render={() => {return <DialogContainer />}}></Route>
                 <Route path="/posts" render={() => {return <PostsContainer />}}></Route>
+                <Route path="/users" render={() => {return <UsersContainer />}}></Route>
             </Switch>
         </main>
     );

@@ -7,7 +7,8 @@ const Aside = ({filter, onActiveChange}) => {
     const buttons = [
         {path: "profile", name: 'Profile'},
         {path: "dialogs", name: 'Dialogs'},
-        {path: "posts", name: 'News'}
+        {path: "posts", name: 'News'},
+        {path: "users", name: "Users"}
     ];
 
     return (

@@ -15,11 +15,6 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-
-// store.subscribe(() => {
-//     rerenderEntireTree();
-// });
-
-window.state = store.getState();
+window.state = store;
 
 serviceWorker.unregister();

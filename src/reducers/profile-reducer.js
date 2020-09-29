@@ -11,14 +11,14 @@ const initialState = {
 
 export const updatePostTextCreator = (text) => {
     return {
-        type: 'UPDATE_POST_TEXT',
+        type: UPDATE_POST_TEXT,
         payload: text
     }
 };
 
 export const addPostCreator = () => {
     return {
-        type: 'ADD_POST'
+        type: ADD_POST
     }
 };
 

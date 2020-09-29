@@ -34,7 +34,7 @@ const dialogReducer = (state = initialState, action) => {
             return  {...state, newMessageText: action.payload};
         case SEND_MESSAGE:
             let newMessage = {
-                id: Math.random() * 100 - 2,
+                id: Math.floor(Math.random() * 100 - 2),
                 message : state.newMessageText
             };
             return  {...state, newMessageText: '', messageData: [...state.messageData, newMessage]};
