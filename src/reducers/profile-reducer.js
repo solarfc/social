@@ -9,43 +9,33 @@ const initialState = {
     postText: ''
 };
 
-const updatePostTextCreator = (text) => {
+export const updatePostTextCreator = (text) => {
     return {
         type: 'UPDATE_POST_TEXT',
         payload: text
     }
 };
 
-const addPostCreator = () => {
+export const addPostCreator = () => {
     return {
         type: 'ADD_POST'
     }
 };
 
 const profileReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
-
     switch (action.type) {
         case UPDATE_POST_TEXT:
-            stateCopy.postText = action.payload;
-            return stateCopy;
+            return  {...state, postText: action.payload};
         case ADD_POST:
-            stateCopy.postData = [...state.postData];
-            stateCopy.postData.unshift({
+            let newPost = {
                 avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg',
                 post: state.postText,
                 likesCount: 0
-            });
-            stateCopy.postText = '';
-            return stateCopy;
+            };
+            return  {...state, postText: '', postData: [newPost, ...state.postData]};
         default:
             return state;
     }
 };
-
-export {
-    addPostCreator,
-    updatePostTextCreator
-}
 
 export default profileReducer;

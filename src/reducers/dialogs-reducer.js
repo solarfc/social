@@ -15,44 +15,32 @@ let initialState = {
     newMessageText: ''
 };
 
-const updateMessageText = (text) => {
+export const updateMessageText = (text) => {
     return {
         type: 'UPDATE_MESSAGE_TEXT',
         payload: text
     }
 };
 
-const sendMessage = () => {
+export const sendMessage = () => {
     return {
         type: 'SEND_MESSAGE'
     }
 };
 
 const dialogReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
     switch (action.type) {
         case UPDATE_MESSAGE_TEXT:
-            stateCopy.newMessageText = action.payload;
-            return stateCopy;
-            break;
+            return  {...state, newMessageText: action.payload};
         case SEND_MESSAGE:
             let newMessage = {
-                id: 100,
+                id: Math.random() * 100 - 2,
                 message : state.newMessageText
             };
-            stateCopy.messageData = [...state.messageData];
-            stateCopy.messageData.push(newMessage);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-            break;
+            return  {...state, newMessageText: '', messageData: [...state.messageData, newMessage]};
         default:
             return state;
     }
 };
 
 export default dialogReducer;
-
-export {
-    updateMessageText,
-    sendMessage
-};
