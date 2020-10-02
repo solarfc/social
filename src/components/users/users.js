@@ -55,7 +55,7 @@ export default class Users extends Component {
         const userz = users.map((item) => {
             const {name, id, uniqueUrlName, photos: {small, large}, status, followed} = item;
             return (
-                <User key={id} name={name} uniqueUrlName={uniqueUrlName} smallPhoto={small} largePhoto={large} status={status} followed={followed} follow={follow} unFollow={unFollow}/>
+                <User key={id} id={id} name={name} uniqueUrlName={uniqueUrlName} smallPhoto={small} largePhoto={large} status={status} followed={followed} follow={follow} unFollow={unFollow}/>
             )
         });
 
