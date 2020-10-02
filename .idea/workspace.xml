@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2395c125-de22-41ed-87ed-bc7c5d361a31" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/users/users-container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/users-container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/users/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/users.js" afterDir="false" />
-    </list>
+    <list default="true" id="2395c125-de22-41ed-87ed-bc7c5d361a31" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,6 +131,8 @@
       <workItem from="1601273010423" duration="7693000" />
       <workItem from="1601282875214" duration="16973000" />
       <workItem from="1601360828010" duration="18461000" />
+      <workItem from="1601383012376" duration="52000" />
+      <workItem from="1601629194526" duration="4681000" />
     </task>
     <servers />
   </component>
@@ -176,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599032728104" />
-    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1601304015618">
+    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1601383063188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601304015618" />
+    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601383063188" />
     <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1601043818734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(setUsersAC(users));
         },
         follow: (id) => {
+            console.log('follow ' + id);
             dispatch(followAC(id));
         },
         unFollow: (id) => {
