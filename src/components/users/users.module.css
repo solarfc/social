@@ -1,0 +1,13 @@
+.selectedPage {
+    font-weight: bold;
+}
+
+.pag {
+    list-style: none;
+    display: flex;
+}
+
+.pag li {
+    cursor: pointer;
+    margin-right: 5px;
+}

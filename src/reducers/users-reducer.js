@@ -1,13 +1,14 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 const initialState = {
-    users: [
-        // {id: 1, followed: true, fullName: 'Dmitry', status: 'I\'m a Boss', location: {city: "Odessa", country: 'Ukraine'}},
-        // {id: 2, followed: true, fullName: 'Sasha', status: 'I\'m a BackEnd Developer', location: {city: "Odessa", country: 'Ukraine'}},
-        // {id: 3, followed: false, fullName: 'Sveta', status: 'I\'m a Design Boss', location: {city: "Odessa", country: 'Ukraine'}},
-    ]
+    users: [],
+    pageSize: 10,
+    totalUsersCount: 0,
+    currentPage: 1
 };
 
 export const followAC = (id) => {
@@ -31,10 +32,28 @@ export const setUsersAC = (users) => {
     }
 };
 
+export const setCurrentPageAC = (id) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        payload: id //current page
+    }
+}
+
+export const setTotalUsersCountAC = (totalCount) => {
+    return {
+        type: SET_TOTAL_USERS_COUNT,
+        payload: totalCount
+    }
+};
+
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS:
-            return {...state, users: [...state.users, ...action.payload]}
+            return {...state, users: action.payload}
+        case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.payload}
+        case SET_CURRENT_PAGE:
+            return {...state, currentPage: action.payload}
         case FOLLOW:
             return {
                 ...state,
