@@ -61,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,14 +73,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\dialogs" />
-      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\posts" />
-      <recent name="D:\study\it-kama\project\01-lesson-4\src\reducers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\study\it-kama\project\01-lesson-4\src\reducers" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components" />
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\dialogs" />
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\posts" />
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\reducers" />
     </key>
   </component>
   <component name="RunManager">
@@ -149,7 +150,8 @@
       <workItem from="1601360828010" duration="11775000" />
       <workItem from="1601635786230" duration="272000" />
       <workItem from="1601636098966" duration="5204000" />
-      <workItem from="1601879900062" duration="5889000" />
+      <workItem from="1601879900062" duration="7720000" />
+      <workItem from="1601890860879" duration="8292000" />
     </task>
     <servers />
   </component>
@@ -183,14 +185,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600933478810" />
-    <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599032728104">
+    <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601893618574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599032728104" />
-    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1601643335946">
+    <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601893618574" />
+    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1601893054672">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601643335946" />
+    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601893054672" />
     <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1601043818734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -211,17 +213,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1107" y="236" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600955577332" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1601044287853">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1601893918907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601044287853" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601893918907" />
     <state x="1176" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1600936471729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1176" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600936471729" />
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1601881404214">
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1601899718618">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601881404214" />
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601899718618" />
   </component>
 </project>

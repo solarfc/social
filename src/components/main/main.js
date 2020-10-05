@@ -4,7 +4,7 @@ import "./main.css";
 import MyProfile from "../my-profile";
 import PostsContainer from "../posts";
 import DialogContainer from "../dialogs";
-import UsersContainer from "../users";
+import UsersContainer from "../users-api";
 
 
 const Main = () => {

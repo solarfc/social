@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import Users from "./users";
-import {followAC, setUsersAC, unFollowAC, setCurrentPageAC, setTotalUsersCountAC} from "../../reducers/users-reducer";
+import {followAC, setUsersAC, unFollowAC, setCurrentPageAC, setTotalUsersCountAC, toggleIsLoadedAC} from "../../reducers/users-reducer";
+import UsersAPIComponent from "./users-api";
 
 const mapStateToProps = (state) => {
     return {
@@ -24,10 +24,13 @@ const mapDispatchToProps = (dispatch) => {
         },
         setTotalUsersCount : (totalCount) => {
             dispatch(setTotalUsersCountAC(totalCount));
+        },
+        toggleIsLoaded: (loading) => {
+            dispatch(toggleIsLoadedAC(loading));
         }
     }
 };
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
 
 export default UsersContainer;

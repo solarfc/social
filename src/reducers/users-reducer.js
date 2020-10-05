@@ -3,12 +3,14 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const TOGGLE_IS_LOADED = "TOGGLE_IS_LOADED";
 
 const initialState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    loading: true
 };
 
 export const followAC = (id) => {
@@ -46,6 +48,13 @@ export const setTotalUsersCountAC = (totalCount) => {
     }
 };
 
+export const toggleIsLoadedAC = (loading) => {
+    return {
+        type: TOGGLE_IS_LOADED,
+        payload: loading
+    }
+};
+
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS:
@@ -54,6 +63,8 @@ const userReducer = (state = initialState, action) => {
             return {...state, totalUsersCount: action.payload}
         case SET_CURRENT_PAGE:
             return {...state, currentPage: action.payload}
+        case TOGGLE_IS_LOADED:
+            return {...state, loading : action.payload}
         case FOLLOW:
             return {
                 ...state,
