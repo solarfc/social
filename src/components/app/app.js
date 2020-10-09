@@ -1,13 +1,13 @@
 import React from "react";
 import "./app.css";
-import Header from "../header";
 import Aside from "../aside";
 import Main from "../main";
+import HeaderContainer from "../header/header-container";
 
 const App = () => {
     return (
         <div>
-            <Header />
+            <HeaderContainer />
             <section className="main-content">
                 <Aside />
                 <Main />

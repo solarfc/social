@@ -61,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../work/project/kedukiv4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,14 +74,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\profile" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src\reducers" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\header" />
+      <recent name="D:\study\it-kama\project\01-lesson-4\src\components\profile\profile-info" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src\components" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src\components\dialogs" />
       <recent name="D:\study\it-kama\project\01-lesson-4\src\components\posts" />
-      <recent name="D:\study\it-kama\project\01-lesson-4\src\reducers" />
     </key>
   </component>
   <component name="RunManager">
@@ -151,7 +153,12 @@
       <workItem from="1601635786230" duration="272000" />
       <workItem from="1601636098966" duration="5204000" />
       <workItem from="1601879900062" duration="7720000" />
-      <workItem from="1601890860879" duration="8292000" />
+      <workItem from="1601890860879" duration="11134000" />
+      <workItem from="1602075261095" duration="7748000" />
+      <workItem from="1602135906299" duration="610000" />
+      <workItem from="1602137031977" duration="6600000" />
+      <workItem from="1602145385945" duration="17679000" />
+      <workItem from="1602223630419" duration="178000" />
     </task>
     <servers />
   </component>
@@ -189,10 +196,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601893618574" />
-    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1601893054672">
+    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1602223806606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601893054672" />
+    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602223806606" />
     <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1601043818734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -221,9 +228,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1176" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600936471729" />
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1601899718618">
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1602160972352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601899718618" />
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602160972352" />
   </component>
 </project>

@@ -13,42 +13,42 @@ const initialState = {
     loading: true
 };
 
-export const followAC = (id) => {
+export const follow = (id) => {
     return {
         type: FOLLOW,
         payload: id //userID
     }
 };
 
-export const unFollowAC = (id) => {
+export const unFollow = (id) => {
     return {
         type: UNFOLLOW,
         payload: id //userID
     }
 };
 
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
     return {
         type: SET_USERS,
         payload: users
     }
 };
 
-export const setCurrentPageAC = (id) => {
+export const setCurrentPage = (id) => {
     return {
         type: SET_CURRENT_PAGE,
         payload: id //current page
     }
 }
 
-export const setTotalUsersCountAC = (totalCount) => {
+export const setTotalUsersCount = (totalCount) => {
     return {
         type: SET_TOTAL_USERS_COUNT,
         payload: totalCount
     }
 };
 
-export const toggleIsLoadedAC = (loading) => {
+export const toggleIsLoaded = (loading) => {
     return {
         type: TOGGLE_IS_LOADED,
         payload: loading
