@@ -1,26 +1,26 @@
 import React from "react";
 import userStyle from "./user.module.css"
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+import {followUser, unFollowUser} from "../../services/services";
 
 const User = ({name, id, uniqueUrlName, smallPhoto, largePhoto, status, followed, follow, unFollow}) => {
 
     const onFollowedThisUser = (id) => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {withCredentials: true, headers: { 'API-KEY': '1900b088-8407-4849-87c8-4c5763f29aab'}})
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    follow(id);
+        followUser(id)
+            .then(data => {
+                if(data.resultCode === 0) {
+                    follow(id)
                 }
             });
     }
 
     const onUnfollowThisUser = (id) => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {withCredentials: true, headers: { 'API-KEY': '1900b088-8407-4849-87c8-4c5763f29aab'}})
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    unFollow(id);
+        unFollowUser(id)
+            .then(data => {
+                if(data.resultCode === 0) {
+                    unFollow(id)
                 }
-            });
+            })
     }
 
     const isFollowedText = followed ? 'Unfollow' : 'Follow';

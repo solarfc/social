@@ -61,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../work/project/kedukiv4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -159,6 +159,7 @@
       <workItem from="1602137031977" duration="6600000" />
       <workItem from="1602145385945" duration="17679000" />
       <workItem from="1602223630419" duration="178000" />
+      <workItem from="1602226556228" duration="2571000" />
     </task>
     <servers />
   </component>

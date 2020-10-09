@@ -1,17 +1,17 @@
 import React, {Component} from "react";
 import Users from "../users";
-import * as axios from "axios";
 import Spinner from "../spinner";
+import {getUsers} from "../../services/services";
 
 export default class UsersAPIComponent extends Component {
 
     getUsers() {
         const {usersPage: {users, pageSize, currentPage, loading}, setUsers, setTotalUsersCount, toggleIsLoaded} = this.props;
         if(users.length === 0) {
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {withCredentials: true})
-                .then(response => {
-                    setUsers(response.data.items);
-                    setTotalUsersCount(response.data.totalCount);
+            getUsers(currentPage, pageSize)
+                .then(data => {
+                    setUsers(data.items);
+                    setTotalUsersCount(data.totalCount);
                     toggleIsLoaded(false);
                 });
         }
@@ -21,9 +21,9 @@ export default class UsersAPIComponent extends Component {
         const {setCurrentPage, usersPage: {pageSize, loading}, setUsers, toggleIsLoaded} = this.props;
         toggleIsLoaded(true);
         setCurrentPage(id);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${id}&count=${pageSize}`, {withCredentials: true})
-            .then(response => {
-                setUsers(response.data.items);
+        getUsers(id, pageSize)
+            .then(data => {
+                setUsers(data.items);
                 setTimeout(function () {
                     toggleIsLoaded(false);
                 }, 500);
