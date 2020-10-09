@@ -2,7 +2,7 @@ import React from "react";
 import User from "../user";
 import style from "./users.module.css"
 
-const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow, onChangeCurrentPage}) => {
+const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow, onChangeCurrentPage, followingInProgress, toggleIsFollowingProgress}) => {
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -16,7 +16,7 @@ const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow,
         const {name, id, uniqueUrlName, photos: {small, large}, status, followed} = item;
         return (
             <User key={id} id={id} name={name} uniqueUrlName={uniqueUrlName} smallPhoto={small} largePhoto={large}
-                  status={status} followed={followed} follow={follow} unFollow={unFollow}/>
+                  status={status} followed={followed} follow={follow} unFollow={unFollow} followingInProgress={followingInProgress} toggleIsFollowingProgress={toggleIsFollowingProgress}/>
         )
     });
 

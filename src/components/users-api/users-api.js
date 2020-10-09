@@ -35,8 +35,8 @@ export default class UsersAPIComponent extends Component {
     }
 
     render() {
-        const {usersPage: {users, currentPage, totalUsersCount, pageSize, loading}, follow, unFollow} = this.props;
-        const isLoading = loading ? <Spinner /> : <Users users={users} currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} follow={follow} unFollow={unFollow} onChangeCurrentPage={this.onChangeCurrentPage}/>
+        const {usersPage: {users, currentPage, totalUsersCount, pageSize, loading, followingInProgress}, follow, unFollow, toggleIsFollowingProgress} = this.props;
+        const isLoading = loading ? <Spinner /> : <Users users={users} currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} follow={follow} unFollow={unFollow} followingInProgress={followingInProgress} toggleIsFollowingProgress={toggleIsFollowingProgress} onChangeCurrentPage={this.onChangeCurrentPage}/>
 
         return isLoading;
     }

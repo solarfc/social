@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {follow, setUsers, unFollow, setCurrentPage, setTotalUsersCount, toggleIsLoaded} from "../../reducers/users-reducer";
+import {follow, setUsers, unFollow, setCurrentPage, setTotalUsersCount, toggleIsLoaded, toggleIsFollowingProgress} from "../../reducers/users-reducer";
 import UsersAPIComponent from "./users-api";
 
 const mapStateToProps = (state) => {
@@ -37,7 +37,8 @@ let newObj = { // тоже самое, что и выше
     unFollow,
     setCurrentPage,
     setTotalUsersCount,
-    toggleIsLoaded
+    toggleIsLoaded,
+    toggleIsFollowingProgress
 }
 
 const UsersContainer = connect(mapStateToProps, newObj)(UsersAPIComponent);
