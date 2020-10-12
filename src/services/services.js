@@ -28,3 +28,18 @@ export const unFollowUser = (id) => {
             .then(response => response.data)
     )
 };
+
+export const setUser = () => {
+    return (
+        instance.get(`auth/me`)
+            .then(response => response.data)
+    )
+};
+
+export const setUserProfileInfo = (id) => {
+    return (
+        instance.get(`profile/${id}`)
+            .then(response => response.data)
+    )
+}
+

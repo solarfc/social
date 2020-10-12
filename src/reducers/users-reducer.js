@@ -1,3 +1,5 @@
+import {followUser, getUsers, unFollowUser} from "../services/services";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -15,14 +17,14 @@ const initialState = {
     followingInProgress: []
 };
 
-export const follow = (id) => {
+export const confirmFollow = (id) => {
     return {
         type: FOLLOW,
         payload: id //userID
     }
 };
 
-export const unFollow = (id) => {
+export const confirmUnFollow = (id) => {
     return {
         type: UNFOLLOW,
         payload: id //userID
@@ -60,10 +62,52 @@ export const toggleIsLoaded = (loading) => {
 export const toggleIsFollowingProgress = (loading, id) => {
     return {
         type: TOGGLE_IS_FOLLOWING_PROGRESS,
-        loading: loading,
-        id: id
+        payload: {
+            loading: loading,
+            id: id
+        }
     }
 }
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+    return (dispatch) => { //redux thunk
+        dispatch(toggleIsLoaded(true));
+        dispatch(setCurrentPage(currentPage));
+        getUsers(currentPage, pageSize)
+            .then(data => {
+                dispatch(setUsers(data.items));
+                dispatch(setTotalUsersCount(data.totalCount));
+                dispatch(toggleIsLoaded(false));
+            });
+    }
+}
+
+export const follow = (id) => { // thunk
+    return (dispatch) => {
+        dispatch(toggleIsFollowingProgress(true, id));
+        followUser(id)
+            .then(data => {
+                if(data.resultCode === 0) {
+                    dispatch(confirmFollow(id));
+                    dispatch(toggleIsFollowingProgress(false, id));
+                }
+            });
+
+    }
+};
+
+export const unFollow = (id) => { // thunk
+    return (dispatch) => {
+        dispatch(toggleIsFollowingProgress(true, id));
+        unFollowUser(id)
+            .then(data => {
+                if(data.resultCode === 0) {
+                    dispatch(confirmUnFollow(id));
+                    dispatch(toggleIsFollowingProgress(false, id));
+                }
+            });
+    }
+};
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -76,10 +120,9 @@ const userReducer = (state = initialState, action) => {
         case TOGGLE_IS_LOADED:
             return {...state, loading : action.payload}
         case TOGGLE_IS_FOLLOWING_PROGRESS:
-            return {...state, followingInProgress: action.loading ? [...state.followingInProgress, action.id] : state.followingInProgress.filter(id => id != action.id)}
+            return {...state, followingInProgress: action.payload.loading ? [...state.followingInProgress, action.payload.id] : state.followingInProgress.filter(id => id != action.payload.id)}
         case FOLLOW:
-            return {
-                ...state,
+            return {...state,
                 users: [...state.users.map(user => {
                     if(user.id === action.payload) {
                         return {...user, followed: true}

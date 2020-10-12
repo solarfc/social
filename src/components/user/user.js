@@ -1,30 +1,15 @@
 import React from "react";
 import userStyle from "./user.module.css"
 import {NavLink} from "react-router-dom";
-import {followUser, unFollowUser} from "../../services/services";
 
-const User = ({name, id, uniqueUrlName, smallPhoto, largePhoto, status, followed, follow, unFollow, followingInProgress, toggleIsFollowingProgress}) => {
+const User = ({name, id, uniqueUrlName, smallPhoto, largePhoto, status, followed, follow, unFollow, followingInProgress}) => {
 
     const onFollowedThisUser = (id) => {
-        toggleIsFollowingProgress(true, id)
-        followUser(id)
-            .then(data => {
-                if(data.resultCode === 0) {
-                    follow(id)
-                    toggleIsFollowingProgress(false, id)
-                }
-            });
+        follow(id);
     }
 
     const onUnFollowThisUser = (id) => {
-        toggleIsFollowingProgress(true, id)
-        unFollowUser(id)
-            .then(data => {
-                if(data.resultCode === 0) {
-                    unFollow(id)
-                    toggleIsFollowingProgress(false, id)
-                }
-            })
+        unFollow(id);
     }
 
     const isFollowedText = followed ? 'Unfollow' : 'Follow';

@@ -1,3 +1,5 @@
+import {setUserProfileInfo} from "../services/services";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -28,6 +30,15 @@ export const setUserProfile = (profile) => {
     return {
         type: SET_USER_PROFILE,
         payload: profile
+    }
+}
+
+export const setUserProfileThunkCreator = (id) => {
+    return (dispatch) => {
+        setUserProfileInfo(id)
+            .then(data => {
+                dispatch(setUserProfile(data));
+            })
     }
 }
 

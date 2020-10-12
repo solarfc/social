@@ -1,3 +1,5 @@
+import {setUser} from "../services/services";
+
 const SET_USER_DATA = 'SET_USER_DATA';
 
 let initialState = {
@@ -16,6 +18,15 @@ export const setAuthUserData = (data) => {
         payload: data
     }
 };
+
+export const setUserThunkCreator = () => {
+    return (dispatch) => {
+        setUser()
+            .then(data => {
+                dispatch(setAuthUserData(data.data));
+            })
+    }
+}
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
