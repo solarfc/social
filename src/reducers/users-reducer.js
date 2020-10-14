@@ -69,44 +69,37 @@ export const toggleIsFollowingProgress = (loading, id) => {
     }
 }
 
-export const getUsersThunkCreator = (currentPage, pageSize) => {
-    return (dispatch) => { //redux thunk
-        dispatch(toggleIsLoaded(true));
-        dispatch(setCurrentPage(currentPage));
-        getUsers(currentPage, pageSize)
-            .then(data => {
-                dispatch(setUsers(data.items));
-                dispatch(setTotalUsersCount(data.totalCount));
-                dispatch(toggleIsLoaded(false));
-            });
-    }
+export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => { //redux thunk
+    dispatch(toggleIsLoaded(true));
+    dispatch(setCurrentPage(currentPage));
+    getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+            dispatch(toggleIsLoaded(false));
+        });
 }
 
-export const follow = (id) => { // thunk
-    return (dispatch) => {
-        dispatch(toggleIsFollowingProgress(true, id));
-        followUser(id)
-            .then(data => {
-                if(data.resultCode === 0) {
-                    dispatch(confirmFollow(id));
-                    dispatch(toggleIsFollowingProgress(false, id));
-                }
-            });
-
-    }
+export const follow = (id) => (dispatch) => {
+    dispatch(toggleIsFollowingProgress(true, id));
+    followUser(id)
+        .then(data => {
+            if(data.resultCode === 0) {
+                dispatch(confirmFollow(id));
+                dispatch(toggleIsFollowingProgress(false, id));
+            }
+        });
 };
 
-export const unFollow = (id) => { // thunk
-    return (dispatch) => {
-        dispatch(toggleIsFollowingProgress(true, id));
-        unFollowUser(id)
-            .then(data => {
-                if(data.resultCode === 0) {
-                    dispatch(confirmUnFollow(id));
-                    dispatch(toggleIsFollowingProgress(false, id));
-                }
-            });
-    }
+export const unFollow = (id) => (dispatch) => {
+    dispatch(toggleIsFollowingProgress(true, id));
+    unFollowUser(id)
+        .then(data => {
+            if(data.resultCode === 0) {
+                dispatch(confirmUnFollow(id));
+                dispatch(toggleIsFollowingProgress(false, id));
+            }
+        });
 };
 
 const userReducer = (state = initialState, action) => {

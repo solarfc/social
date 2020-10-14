@@ -61,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../work/project/huaweiv2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -163,7 +163,9 @@
       <workItem from="1602243443161" duration="6483000" />
       <workItem from="1602251424188" duration="2030000" />
       <workItem from="1602482908437" duration="8725000" />
-      <workItem from="1602507424701" duration="3370000" />
+      <workItem from="1602507424701" duration="3549000" />
+      <workItem from="1602572386875" duration="3475000" />
+      <workItem from="1602589748911" duration="3165000" />
     </task>
     <servers />
   </component>
@@ -197,14 +199,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600933478810" />
+    <state x="1144" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602591290062">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1144" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602591290062" />
     <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601893618574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601893618574" />
-    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1602491974785">
+    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1602592959899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602491974785" />
+    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602592959899" />
     <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1601043818734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -233,9 +239,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1176" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600936471729" />
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1602510117019">
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1602592652948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602510117019" />
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602592652948" />
   </component>
 </project>

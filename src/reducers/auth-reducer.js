@@ -19,13 +19,13 @@ export const setAuthUserData = (data) => {
     }
 };
 
-export const setUserThunkCreator = () => {
-    return (dispatch) => {
-        setUser()
-            .then(data => {
+export const setUserThunkCreator = () => (dispatch) => {
+    setUser()
+        .then(data => {
+            if(data.resultCode === 0) {
                 dispatch(setAuthUserData(data.data));
-            })
-    }
+            }
+        })
 }
 
 const authReducer = (state = initialState, action) => {

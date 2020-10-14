@@ -4,6 +4,7 @@ import "./main.css";
 import DialogContainer from "../dialogs";
 import UsersContainer from "../users-api";
 import ProfileContainer from "../profile/profile-container";
+import Login from "../login";
 
 
 const Main = () => {
@@ -13,8 +14,8 @@ const Main = () => {
             <Switch>
                 <Route path="/profile/:userId?" render={() => {return <ProfileContainer />}}></Route>
                 <Route path="/dialogs" render={() => {return <DialogContainer />}}></Route>
-                {/*<Route path="/posts" render={() => {return <PostsContainer />}}></Route>*/}
                 <Route path="/users" render={() => {return <UsersContainer />}}></Route>
+                <Route path="/login" render={() => {return <Login />}}></Route>
             </Switch>
         </main>
     );

@@ -41,5 +41,5 @@ export const setUserProfileInfo = (id) => {
         instance.get(`profile/${id}`)
             .then(response => response.data)
     )
-}
+};
 

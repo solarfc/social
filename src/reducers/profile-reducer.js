@@ -33,13 +33,11 @@ export const setUserProfile = (profile) => {
     }
 }
 
-export const setUserProfileThunkCreator = (id) => {
-    return (dispatch) => {
-        setUserProfileInfo(id)
-            .then(data => {
-                dispatch(setUserProfile(data));
-            })
-    }
+export const setUserProfileThunkCreator = (id) => (dispatch) => {
+    setUserProfileInfo(id)
+        .then(data => {
+            dispatch(setUserProfile(data));
+        })
 }
 
 const profileReducer = (state = initialState, action) => {
