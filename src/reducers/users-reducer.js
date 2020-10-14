@@ -113,7 +113,7 @@ const userReducer = (state = initialState, action) => {
         case TOGGLE_IS_LOADED:
             return {...state, loading : action.payload}
         case TOGGLE_IS_FOLLOWING_PROGRESS:
-            return {...state, followingInProgress: action.payload.loading ? [...state.followingInProgress, action.payload.id] : state.followingInProgress.filter(id => id != action.payload.id)}
+            return {...state, followingInProgress: action.payload.loading ? [...state.followingInProgress, action.payload.id] : state.followingInProgress.filter(id => id !== action.payload.id)}
         case FOLLOW:
             return {...state,
                 users: [...state.users.map(user => {
