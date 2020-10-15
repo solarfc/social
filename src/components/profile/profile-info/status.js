@@ -3,7 +3,7 @@ import React, {Component} from "react";
 export default class Status extends Component {
     state = {
         editMode: false,
-        status: 'My Status'
+        status: (this.props.status === null) ? 'My Status' : this.props.status
     };
 
     // onChangeStatus = () => {
@@ -15,9 +15,13 @@ export default class Status extends Component {
     //     this.setState({editMode: false})
     // };
 
+
     onToggleStatus = () => {
         const edit = this.state.editMode;
         this.setState({editMode: !edit});
+        if(edit) {
+            this.props.setUserStatusThunkCreator(this.state.status);
+        }
     }
 
     onChangeTextStatus = (e) => {
@@ -25,9 +29,16 @@ export default class Status extends Component {
         this.setState({status: text});
     };
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevState.status !== this.state.status) {
+            console.log(1)
+        }
+    }
+
     render() {
 
         const {editMode} = this.state;
+
         const status = editMode ?
             <input type="text" value={this.state.status} onChange={this.onChangeTextStatus} onBlur={this.onToggleStatus} autoFocus={true}/> :
             <h3 onDoubleClick={this.onToggleStatus}>{this.state.status}</h3>

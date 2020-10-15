@@ -11,14 +11,15 @@ class ProfileAPI extends Component {
             myId = 11921;
         }
         this.props.setUserProfileThunkCreator(myId);
+        this.props.getUserStatusThunkCreator(myId);
     }
 
     render() {
-        const {profilePage: {profile}} = this.props;
+        const {profilePage: {profile, status}, setUserStatusThunkCreator} = this.props;
 
         return (
             <div>
-                <Profile profile={profile}/>
+                <Profile profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} />
             </div>
         )
     }

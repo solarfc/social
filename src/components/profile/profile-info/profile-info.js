@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "../../spinner";
 import Status from "./status";
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({profile, status, setUserStatusThunkCreator}) => {
     if(!profile) {
         return <Spinner />
     }
@@ -12,7 +12,7 @@ const ProfileInfo = ({profile}) => {
         <div>
             <a href={large}><img src={small} alt=""/></a>
             <h1>{fullName}</h1>
-            <Status />
+            <Status status={status} setUserStatusThunkCreator={setUserStatusThunkCreator}/>
             <p>Обо мне: {aboutMe}</p>
             <p>Ищу работу: {lookingForAJob ? 'да' : 'нет'}</p>
             <p>Кем хочу быть: {lookingForAJobDescription}</p>

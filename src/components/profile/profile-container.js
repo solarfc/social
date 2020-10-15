@@ -1,5 +1,9 @@
 import {connect} from "react-redux";
-import {setUserProfileThunkCreator} from "../../reducers/profile-reducer";
+import {
+    setUserProfileThunkCreator,
+    getUserStatusThunkCreator,
+    setUserStatusThunkCreator
+} from "../../reducers/profile-reducer";
 import WithUrlDataContainerComponent from "./profile-api";
 import {compose} from "redux";
 
@@ -8,6 +12,6 @@ const mapStateToProps = (state) => {
         profilePage: state.profilePage,
     }
 };
-const ProfileContainer = compose(connect(mapStateToProps, {setUserProfileThunkCreator}))(WithUrlDataContainerComponent);
+const ProfileContainer = compose(connect(mapStateToProps, {setUserProfileThunkCreator, getUserStatusThunkCreator, setUserStatusThunkCreator}))(WithUrlDataContainerComponent);
 
 export default ProfileContainer;

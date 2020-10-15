@@ -43,3 +43,16 @@ export const setUserProfileInfo = (id) => {
     )
 };
 
+export const getUserStatus = (id) => {
+    return (
+        instance.get(`profile/status/${id}`)
+            .then(response => response.data)
+    )
+};
+
+export const updateStatus = (status) => {
+    return (
+        instance.put(`profile/status`, {status: status})
+            .then(response => response.config)
+    )
+};
