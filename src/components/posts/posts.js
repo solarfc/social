@@ -1,17 +1,27 @@
 import React from "react";
 import "./post.css";
 import Post from "../post";
+import {Field, reduxForm} from "redux-form";
 
-const Posts = ({profilePage: {postData, postText}, addPosts, onChangePostText}) => {
+const PostForm = ({handleSubmit}) => {
+    return (
+        <form className="add-post" onSubmit={handleSubmit}>
+            <div className="form-group">
+                <Field name="post" type="text" component="textarea" placeholder='Add new post' />
+            </div>
+            <div className="form-group">
+                <button type="submit" >Add Post</button>
+            </div>
+        </form>
+    )
+}
 
-    const addPost = (e) => {
-        e.preventDefault();
-        addPosts();
-    };
+const PostReduxForm = reduxForm({form: 'post'})(PostForm);
 
-    const onPostChange = (e) => {
-        let text = e.target.value;
-        onChangePostText(text);
+const Posts = ({profilePage: {postData}, addPosts}) => {
+
+    const addPost = ({post}) => {
+        addPosts(post);
     };
 
     const posts = postData.map((item) => {
@@ -24,10 +34,7 @@ const Posts = ({profilePage: {postData, postText}, addPosts, onChangePostText}) 
     return (
         <div>
             <h3>My Posts</h3>
-            <form className="add-post" onSubmit={addPost}>
-                <textarea name="" id="" value={postText} onChange={onPostChange} placeholder='Add new post' />
-                <button type="submit" >Add Post</button>
-            </form>
+            <PostReduxForm onSubmit={addPost}/>
             <div className="all-posts">
                 {posts}
             </div>

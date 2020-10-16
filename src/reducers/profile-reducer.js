@@ -1,7 +1,6 @@
 import {getUserStatus, setUserProfileInfo, updateStatus} from "../services/services";
 
 const ADD_POST = 'ADD_POST';
-const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_USER_STATUS = 'GET_USER_STATUS';
 const SET_USER_STATUS = 'SET_USER_STATUS';
@@ -11,21 +10,14 @@ const initialState = {
         {avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg', post: 'Hi, a\'m Avatar', likesCount: 20},
         {avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg', post: 'First Post', likesCount: 55}
     ],
-    postText: '',
     profile: null,
     status: null
 };
 
-export const updatePostTextCreator = (text) => {
+export const addPostCreator = (post) => {
     return {
-        type: UPDATE_POST_TEXT,
-        payload: text
-    }
-};
-
-export const addPostCreator = () => {
-    return {
-        type: ADD_POST
+        type: ADD_POST,
+        payload: post
     }
 };
 
@@ -79,15 +71,13 @@ const profileReducer = (state = initialState, action) => {
             return {...state, status: action.payload}
         case SET_USER_STATUS :
             return {...state, status: action.payload}
-        case UPDATE_POST_TEXT:
-            return  {...state, postText: action.payload};
         case ADD_POST:
             let newPost = {
                 avatar: 'https://mir-avatarok.3dn.ru/_si/0/03342719.jpg',
-                post: state.postText,
+                post: action.payload,
                 likesCount: 0
             };
-            return  {...state, postText: '', postData: [newPost, ...state.postData]};
+            return  {...state, postData: [newPost, ...state.postData]};
         default:
             return state;
     }

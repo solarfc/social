@@ -36,6 +36,13 @@ export const setUser = () => {
     )
 };
 
+export const login = (email, password, rememberMe, captcha) => {
+    return (
+        instance.post(`auth/login`, {email, password, rememberMe, captcha})
+            .then(response => response)
+    )
+};
+
 export const setUserProfileInfo = (id) => {
     return (
         instance.get(`profile/${id}`)
