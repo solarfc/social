@@ -1,0 +1,13 @@
+.form-group.error input, .form-group.error textarea {
+    border: 1px solid tomato;
+}
+
+.form-group span {
+    display: none;
+}
+
+.form-group.error span {
+    display: block;
+    font-family: Georgia;
+    color: tomato;
+}
