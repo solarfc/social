@@ -1,11 +1,22 @@
 import {connect} from "react-redux";
 import {getUsersThunkCreator, follow, unFollow} from "../../reducers/users-reducer";
 import UsersAPIComponent from "./users-api";
-import {getUsers} from "../../reducers/users-selector";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getLoading,
+    getPageSize,
+    getTotalUsersCount, getUsers
+} from "../../reducers/users-selector";
 
 const mapStateToProps = (state) => {
     return {
-        usersPage: getUsers(state),
+        users: getUsers(state.usersPage),
+        pageSize: getPageSize(state.usersPage),
+        totalUsersCount: getTotalUsersCount(state.usersPage),
+        currentPage: getCurrentPage(state.usersPage),
+        loading: getLoading(state.usersPage),
+        followingInProgress: getFollowingInProgress(state.usersPage)
     }
 };
 
