@@ -6,10 +6,14 @@ import {
 } from "../../reducers/profile-reducer";
 import WithUrlDataContainerComponent from "./profile-api";
 import {compose} from "redux";
+import {getProfile} from "../../reducers/profile-selector";
+import {isAuth, userId} from "../../reducers/auth-selecros";
 
 const mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage,
+        profilePage: getProfile(state),
+        userId: userId(state),
+        isAuth: isAuth(state)
     }
 };
 const ProfileContainer = compose(connect(mapStateToProps, {setUserProfileThunkCreator, getUserStatusThunkCreator, setUserStatusThunkCreator}))(WithUrlDataContainerComponent);

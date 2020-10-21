@@ -8,7 +8,7 @@ class ProfileAPI extends Component {
         const {match: {params: {userId}}} = this.props;
         let myId = userId;
         if(!myId) {
-            myId = 11921;
+            myId = this.props.userId;
         }
         this.props.setUserProfileThunkCreator(myId);
         this.props.getUserStatusThunkCreator(myId);

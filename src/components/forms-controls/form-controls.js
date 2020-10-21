@@ -25,7 +25,7 @@ const Input = ({input, placeholder, ...props}) => {
 
     return (
         <FormControl {...props}>
-            <input type="text" placeholder={placeholder} {...input}/>
+            <input type={props.type} placeholder={placeholder} {...input}/>
         </FormControl>
     )
 };

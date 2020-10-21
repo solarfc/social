@@ -1,7 +1,7 @@
-import {login, setUser} from "../services/services";
+import {login, logout, setUser} from "../services/services";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const LOGIN_USER = 'LOGIN_USER';
 
 let initialState = {
     data: {
@@ -16,40 +16,42 @@ let initialState = {
 export const setAuthUserData = (data) => {
     return {
         type: SET_USER_DATA,
-        payload: data
+        payload: data,
     }
 };
 
 export const setUserThunkCreator = () => (dispatch) => {
-    setUser()
+    return setUser()
         .then(data => {
-            if(data.resultCode === 0) {
-                dispatch(setAuthUserData(data.data));
+            dispatch(setAuthUserData(data.data));
+        });
+};
+
+export const loginUserThunkCreator = (email, password, rememberMe) => (dispatch) => {
+    login(email, password, rememberMe)
+        .then(data => {
+            if(data.data.resultCode === 0) {
+                dispatch(setUserThunkCreator())
+            } else {
+                dispatch(stopSubmit('login', {_error: data.data.messages}));
             }
         })
 };
 
-
-export const loginUser = (data) => {
-    return {
-        type: LOGIN_USER,
-        payload: data
-    }
-};
-
-export const loginUserThunkCreator = (data) => (dispatch) => {
-    login(data)
+export const logoutUserThunkCreator = () => (dispatch) => {
+    logout()
         .then(data => {
-            dispatch(loginUser(data.config.data))
+            if(data.data.resultCode === 0) {
+                dispatch(setUserThunkCreator())
+            }
         })
 };
 
 const authReducer = (state = initialState, action) => {
+    const a = state.isAuth;
     switch (action.type) {
-        case LOGIN_USER:
-            return {...state, data: action.payload, isAuth: true, loading: false}
         case SET_USER_DATA:
-            return {...state, data: action.payload, isAuth: true, loading: false}
+            return {...state, data: action.payload, isAuth: !a, loading: false}
         default:
             return state;
     }

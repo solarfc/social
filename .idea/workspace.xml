@@ -68,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../work/project/eccov9" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -182,7 +182,10 @@
       <workItem from="1602771380104" duration="1149000" />
       <workItem from="1602829117431" duration="3371000" />
       <workItem from="1602848823175" duration="6468000" />
-      <workItem from="1603088205302" duration="5241000" />
+      <workItem from="1603088205302" duration="5474000" />
+      <workItem from="1603186493683" duration="7159000" />
+      <workItem from="1603194971985" duration="5265000" />
+      <workItem from="1603261048115" duration="11772000" />
     </task>
     <servers />
   </component>
@@ -224,10 +227,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1111" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601893618574" />
-    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1602856087817">
+    <state x="720" y="277" key="FileChooserDialogImpl" timestamp="1603273997302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602856087817" />
+    <state x="720" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603273997302" />
     <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1601043818734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -260,9 +263,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1050" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602747377801" />
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1603092420507">
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1603272632182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603092420507" />
+    <state x="1044" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603272632182" />
   </component>
 </project>

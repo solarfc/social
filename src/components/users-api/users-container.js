@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
 import {getUsersThunkCreator, follow, unFollow} from "../../reducers/users-reducer";
 import UsersAPIComponent from "./users-api";
+import {getUsers} from "../../reducers/users-selector";
 
 const mapStateToProps = (state) => {
     return {
-        usersPage: state.usersPage,
+        usersPage: getUsers(state),
     }
 };
 

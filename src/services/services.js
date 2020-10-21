@@ -36,10 +36,16 @@ export const setUser = () => {
     )
 };
 
-export const login = (email, password, rememberMe, captcha) => {
+export const login = (email, password, rememberMe = false) => {
     return (
-        instance.post(`auth/login`, {email, password, rememberMe, captcha})
+        instance.post(`auth/login`, {email, password, rememberMe})
             .then(response => response)
+    )
+};
+
+export const logout = () => {
+    return (
+        instance.delete(`auth/login`)
     )
 };
 

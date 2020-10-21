@@ -1,0 +1,9 @@
+.some-error {
+    box-sizing: border-box;
+    font-family: Georgia, sans-serif;
+    color: tomato;
+    padding: 5px;
+    border: 2px solid crimson;
+    margin: 5px 0;
+    max-width: 300px;
+}
