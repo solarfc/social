@@ -30,4 +30,4 @@ export const getLoading = (state) => {
 
 export const getFollowingInProgress = (state) => {
     return state.followingInProgress;
-}
+};
