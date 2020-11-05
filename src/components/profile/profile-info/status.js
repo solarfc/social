@@ -1,10 +1,16 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 /* functional component with hook */
 
 const Status = (props) => {
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
+
+    status = status === null ? 'My Status' : status;
+
+    useEffect(() => {
+        setStatus(status);
+    }, [props.status]);
 
     const onToggleStatus = () => {
         const edit = editMode;

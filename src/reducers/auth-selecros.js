@@ -8,4 +8,4 @@ export const userId = (state) => {
 
 export const isAuth = (state) => {
     return state.auth.isAuth;
-}
+};
