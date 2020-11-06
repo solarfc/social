@@ -10,7 +10,7 @@ const Status = (props) => {
 
     useEffect(() => {
         setStatus(status);
-    }, [props.status]);
+    }, [status]);
 
     const onToggleStatus = () => {
         const edit = editMode;
