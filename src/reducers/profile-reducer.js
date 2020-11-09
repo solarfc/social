@@ -4,6 +4,7 @@ const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_USER_STATUS = 'GET_USER_STATUS';
 const SET_USER_STATUS = 'SET_USER_STATUS';
+const DEL_POST = 'DELETE_POST';
 
 const initialState = {
     postData: [
@@ -20,6 +21,13 @@ export const addPostCreator = (post) => {
         payload: post
     }
 };
+
+export const deletePostCreator = (id) => {
+    return {
+        type: DEL_POST,
+        payload: id
+    }
+}
 
 export const setUserProfile = (profile) => {
     return {
@@ -78,6 +86,8 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0
             };
             return  {...state, postData: [newPost, ...state.postData]};
+        case DEL_POST:
+            return {...state, postData: state.postData.filter(item => item.id !== action.payload)}
         default:
             return state;
     }
