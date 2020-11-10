@@ -1,12 +1,12 @@
 import {followUser, getUsers, unFollowUser} from "../services/services";
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
-const SET_USERS = "SET_USERS";
-const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
-const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
-const TOGGLE_IS_LOADED = "TOGGLE_IS_LOADED";
-const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
+const FOLLOW = "users/FOLLOW";
+const UNFOLLOW = "users/UNFOLLOW";
+const SET_USERS = "users/SET_USERS";
+const SET_CURRENT_PAGE = "users/SET_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "users/SET_TOTAL_USERS_COUNT";
+const TOGGLE_IS_LOADED = "users/TOGGLE_IS_LOADED";
+const TOGGLE_IS_FOLLOWING_PROGRESS = "users/TOGGLE_IS_FOLLOWING_PROGRESS";
 
 const initialState = {
     users: [],
@@ -43,7 +43,7 @@ export const setCurrentPage = (id) => {
         type: SET_CURRENT_PAGE,
         payload: id //current page
     }
-}
+};
 
 export const setTotalUsersCount = (totalCount) => {
     return {
@@ -67,39 +67,33 @@ export const toggleIsFollowingProgress = (loading, id) => {
             id: id
         }
     }
-}
+};
 
-export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => { //redux thunk
+export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => { //redux thunk
     dispatch(toggleIsLoaded(true));
     dispatch(setCurrentPage(currentPage));
-    getUsers(currentPage, pageSize)
-        .then(data => {
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-            dispatch(toggleIsLoaded(false));
-        });
-}
+    let data = await getUsers(currentPage, pageSize);
+    dispatch(setUsers(data.items));
+    dispatch(setTotalUsersCount(data.totalCount));
+    dispatch(toggleIsLoaded(false));
+};
+
+const followUnfollowFlow = async (dispatch, id, apiMethod, actionCreator) => {
+    dispatch(toggleIsFollowingProgress(true, id));
+    let data = await apiMethod;
+    if(data.resultCode === 0) {
+        dispatch(actionCreator);
+        dispatch(toggleIsFollowingProgress(false, id));
+    }
+};
 
 export const follow = (id) => (dispatch) => {
-    dispatch(toggleIsFollowingProgress(true, id));
-    followUser(id)
-        .then(data => {
-            if(data.resultCode === 0) {
-                dispatch(confirmFollow(id));
-                dispatch(toggleIsFollowingProgress(false, id));
-            }
-        });
+    followUnfollowFlow(dispatch, id, followUser(id), confirmFollow(id));
+
 };
 
 export const unFollow = (id) => (dispatch) => {
-    dispatch(toggleIsFollowingProgress(true, id));
-    unFollowUser(id)
-        .then(data => {
-            if(data.resultCode === 0) {
-                dispatch(confirmUnFollow(id));
-                dispatch(toggleIsFollowingProgress(false, id));
-            }
-        });
+    followUnfollowFlow(dispatch, id, unFollowUser(id), confirmUnFollow(id));
 };
 
 const userReducer = (state = initialState, action) => {
@@ -116,6 +110,7 @@ const userReducer = (state = initialState, action) => {
             return {...state, followingInProgress: action.payload.loading ? [...state.followingInProgress, action.payload.id] : state.followingInProgress.filter(id => id !== action.payload.id)}
         case FOLLOW:
             return {...state,
+                // users: updateObjectInArray(state.users, action.payload, 'id', {followed: true})
                 users: [...state.users.map(user => {
                     if(user.id === action.payload) {
                         return {...user, followed: true}

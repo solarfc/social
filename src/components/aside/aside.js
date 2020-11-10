@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import asideStyle from "./aside.module.css";
 
-const Aside = ({filter, onActiveChange}) => {
+const Aside = () => {
 
     const buttons = [
         {path: "profile", name: 'Profile'},

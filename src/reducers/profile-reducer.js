@@ -1,10 +1,10 @@
 import {getUserStatus, setUserProfileInfo, updateStatus} from "../services/services";
 
-const ADD_POST = 'ADD_POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const GET_USER_STATUS = 'GET_USER_STATUS';
-const SET_USER_STATUS = 'SET_USER_STATUS';
-const DEL_POST = 'DELETE_POST';
+const ADD_POST = 'profile/ADD_POST';
+const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
+const GET_USER_STATUS = 'profile/GET_USER_STATUS';
+const SET_USER_STATUS = 'profile/SET_USER_STATUS';
+const DEL_POST = 'profile/DELETE_POST';
 
 const initialState = {
     postData: [
@@ -50,25 +50,19 @@ export const setStatus = (status) => {
     }
 }
 
-export const setUserProfileThunkCreator = (id) => (dispatch) => {
-    setUserProfileInfo(id)
-        .then(data => {
-            dispatch(setUserProfile(data));
-        })
+export const setUserProfileThunkCreator = (id) => async (dispatch) => {
+    let data = await setUserProfileInfo(id);
+    dispatch(setUserProfile(data));
 }
 
-export const getUserStatusThunkCreator = (id) => (dispatch) => {
-    getUserStatus(id)
-        .then(data => {
-            dispatch(getStatus(data))
-        });
+export const getUserStatusThunkCreator = (id) => async (dispatch) => {
+    let data = await getUserStatus(id);
+    dispatch(getStatus(data));
 }
 
-export const setUserStatusThunkCreator = (status) => (dispatch) => {
-    updateStatus(status)
-        .then(data => {
-            dispatch(setStatus(data))
-        });
+export const setUserStatusThunkCreator = (status) => async (dispatch) => {
+    let data = await updateStatus(status)
+    dispatch(setStatus(data))
 }
 
 const profileReducer = (state = initialState, action) => {

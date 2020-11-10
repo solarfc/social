@@ -1,16 +1,8 @@
 import React from "react";
 import User from "../user";
-import style from "./users.module.css"
+import Pagination from "./pagination";
 
 const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow, onChangeCurrentPage, followingInProgress}) => {
-
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
-
-    let pages = [];
-
-    for(let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
 
     const userz = users.map((item) => {
         const {name, id, uniqueUrlName, photos: {small, large}, status, followed} = item;
@@ -23,16 +15,7 @@ const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow,
     return (
         <div>
             <h1>Users here</h1>
-            <div className="pagination">
-                <ul className={`${style.pag}`}>
-                    {pages.map((item) => {
-                        return (
-                            <li key={item} id={item} className={currentPage === item ? `${style.selectedPage}` : ''}
-                                onClick={() => onChangeCurrentPage(item)}>{item}</li>
-                        )
-                    }).slice(0, 20)}
-                </ul>
-            </div>
+            <Pagination currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onChangeCurrentPage={onChangeCurrentPage}/>
             <div className="all-users">
                 {userz}
             </div>

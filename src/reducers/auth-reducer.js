@@ -1,7 +1,7 @@
 import {login, logout, setUser} from "../services/services";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'auth/SET_USER_DATA';
 
 let initialState = {
     data: {
@@ -20,31 +20,25 @@ export const setAuthUserData = (data) => {
     }
 };
 
-export const setUserThunkCreator = () => (dispatch) => {
-    return setUser()
-        .then(data => {
-            dispatch(setAuthUserData(data.data));
-        });
+export const setUserThunkCreator = () => async (dispatch) => {
+    let data = await setUser();
+    dispatch(setAuthUserData(data.data));
 };
 
-export const loginUserThunkCreator = (email, password, rememberMe) => (dispatch) => {
-    login(email, password, rememberMe)
-        .then(data => {
-            if(data.data.resultCode === 0) {
-                dispatch(setUserThunkCreator())
-            } else {
-                dispatch(stopSubmit('login', {_error: data.data.messages}));
-            }
-        })
+export const loginUserThunkCreator = (email, password, rememberMe) => async (dispatch) => {
+    let data = await login(email, password, rememberMe);
+    if(data.data.resultCode === 0) {
+        dispatch(setUserThunkCreator());
+    } else {
+        dispatch(stopSubmit('login', {_error: data.data.messages}));
+    }
 };
 
-export const logoutUserThunkCreator = () => (dispatch) => {
-    logout()
-        .then(data => {
-            if(data.data.resultCode === 0) {
-                dispatch(setUserThunkCreator())
-            }
-        })
+export const logoutUserThunkCreator = () => async (dispatch) => {
+    let data = await logout();
+    if(data.data.resultCode === 0) {
+        dispatch(setUserThunkCreator());
+    }
 };
 
 const authReducer = (state = initialState, action) => {
