@@ -2,7 +2,6 @@ import React from "react";
 import style from "./users.module.css";
 
 const Pagination = ({currentPage, totalUsersCount, pageSize,  onChangeCurrentPage}) => {
-    console.log(currentPage);
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -24,7 +23,6 @@ const Pagination = ({currentPage, totalUsersCount, pageSize,  onChangeCurrentPag
             </ul>
         </div>
     )
-
 };
 
 export default Pagination;
