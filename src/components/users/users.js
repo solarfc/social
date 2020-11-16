@@ -1,6 +1,6 @@
 import React from "react";
 import User from "../user";
-import Pagination from "./pagination";
+import Paginations from "./pagination";
 
 const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow, onChangeCurrentPage, followingInProgress}) => {
 
@@ -15,7 +15,7 @@ const Users = ({users, currentPage, totalUsersCount, pageSize, follow, unFollow,
     return (
         <div>
             <h1>Users here</h1>
-            <Pagination currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onChangeCurrentPage={onChangeCurrentPage}/>
+            <Paginations currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onChangeCurrentPage={onChangeCurrentPage}/>
             <div className="all-users">
                 {userz}
             </div>

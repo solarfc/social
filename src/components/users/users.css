@@ -1,0 +1,30 @@
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.pagination li.active {
+    color: inherit;
+    font-weight: bold;
+}
+
+.pagination li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pag {
+    list-style: none;
+    display: flex;
+}
+
+.pag li {
+    cursor: pointer;
+    margin-right: 5px;
+}
