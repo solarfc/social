@@ -14,9 +14,8 @@ export default class Paginations extends Component {
         this.props.onChangeCurrentPage(pageNumber);
     }
 
-
     render() {
-        const {currentPage, totalUsersCount, pageSize,  onChangeCurrentPage} = this.props;
+        const {totalUsersCount, pageSize} = this.props;
         return (
             <Pagination style={style.pagination} prevPageText='prev' nextPageText='next' firstPageText='first' lastPageText='last' activePage={this.state.activePage} totalItemsCount={Math.ceil(totalUsersCount / pageSize)} pageRangeDisplayed={pageSize} onChange={this.handlePageChange.bind(this)} />
         )

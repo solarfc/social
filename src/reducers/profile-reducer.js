@@ -1,10 +1,11 @@
-import {getUserStatus, setUserProfileInfo, updateStatus} from "../services/services";
+import {getUserStatus, savePhoto, saveProfile, setUserProfileInfo, updateStatus} from "../services/services";
 
 const ADD_POST = 'profile/ADD_POST';
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const GET_USER_STATUS = 'profile/GET_USER_STATUS';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const DEL_POST = 'profile/DELETE_POST';
+const SAVE_PHOTO = 'profile/SAVE_PHOTO';
 
 const initialState = {
     postData: [
@@ -50,6 +51,13 @@ export const setStatus = (status) => {
     }
 }
 
+export const savePhotoSuccess = (photos) => {
+    return {
+        type: SAVE_PHOTO,
+        payload: photos
+    }
+}
+
 export const setUserProfileThunkCreator = (id) => async (dispatch) => {
     let data = await setUserProfileInfo(id);
     dispatch(setUserProfile(data));
@@ -63,6 +71,22 @@ export const getUserStatusThunkCreator = (id) => async (dispatch) => {
 export const setUserStatusThunkCreator = (status) => async (dispatch) => {
     let data = await updateStatus(status)
     dispatch(setStatus(data))
+}
+
+export const savePhotoThunkCreator = (file) => async (dispatch) => {
+    let data = await savePhoto(file);
+    if(data.resultCode === 0) {
+        dispatch(savePhotoSuccess(data.photos));
+    }
+}
+
+export const saveProfileThunkCreator = (profile) => async (dispatch) => {
+    let data = await saveProfile(profile);
+    // debugger;
+    console.log(data);
+    if(data.resultCode === 0) {
+        // dispatch(setUserProfile(data))
+    }
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -82,6 +106,8 @@ const profileReducer = (state = initialState, action) => {
             return  {...state, postData: [newPost, ...state.postData]};
         case DEL_POST:
             return {...state, postData: state.postData.filter(item => item.id !== action.payload)}
+        case SAVE_PHOTO:
+            return {...state, profile: {...state.profile, photos: action.payload}}
         default:
             return state;
     }

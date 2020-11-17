@@ -2,7 +2,9 @@ import {connect} from "react-redux";
 import {
     setUserProfileThunkCreator,
     getUserStatusThunkCreator,
-    setUserStatusThunkCreator
+    setUserStatusThunkCreator,
+    savePhotoThunkCreator,
+    saveProfileThunkCreator
 } from "../../reducers/profile-reducer";
 import WithUrlDataContainerComponent from "./profile-api";
 import {compose} from "redux";
@@ -16,6 +18,7 @@ const mapStateToProps = (state) => {
         isAuth: isAuth(state)
     }
 };
-const ProfileContainer = compose(connect(mapStateToProps, {setUserProfileThunkCreator, getUserStatusThunkCreator, setUserStatusThunkCreator}))(WithUrlDataContainerComponent);
+
+const ProfileContainer = compose(connect(mapStateToProps, {setUserProfileThunkCreator, getUserStatusThunkCreator, setUserStatusThunkCreator, savePhotoThunkCreator, saveProfileThunkCreator}))(WithUrlDataContainerComponent);
 
 export default ProfileContainer;

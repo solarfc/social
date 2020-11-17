@@ -1,21 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
 import Spinner from "../../spinner";
 import Status from "./status";
+import ProfileDataForm from "./profile-data-form";
+import ProfileDataFormReduxForm from "./profile-data-form";
 
-const ProfileInfo = ({profile, status, setUserStatusThunkCreator}) => {
+const ProfileInfo = ({isOwner, profile, status, setUserStatusThunkCreator, savePhotoThunkCreator, saveProfileThunkCreator}) => {
+
+    const [editMode, setEditMode] = useState(false);
+
     if(!profile) {
         return <Spinner />
     }
 
-    const {fullName, aboutMe, photos: {small, large}, lookingForAJob, lookingForAJobDescription, contacts: {facebook, github, instagram, mainLink, twitter, vk, website, youtube}} = profile;
+    const onMainPhotoSelected = (e) => {
+        if(e.target.files.length) {
+            savePhotoThunkCreator(e.target.files[0]);
+        }
+    };
+
+    const onSubmit = (formData) => {
+        saveProfileThunkCreator(formData)
+    }
+
+    const {photos: {small, large}} = profile;
+
     return (
         <div>
-            <a href={large}><img src={small} alt=""/></a>
+            <img src={small || `https://psihologion.ru/upload/032/u3205/000/82c7100b.jpg`} alt=""/>
+            {isOwner && <div><input type="file" onChange={onMainPhotoSelected}/></div>}
+            {editMode ? <ProfileDataForm status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} onSubmit={onSubmit}/> : <ProfileData profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
+        </div>
+    )
+};
+
+export default ProfileInfo;
+
+const ProfileData = ({profile, status, setUserStatusThunkCreator, isOwner, goToEditMode}) => {
+    const {fullName, aboutMe, lookingForAJob, lookingForAJobDescription, contacts: {facebook, github, instagram, website}} = profile;
+    return (
+        <>
+            {isOwner && <button onClick={goToEditMode}>edit</button>}
             <h1>{fullName}</h1>
             <Status status={status} setUserStatusThunkCreator={setUserStatusThunkCreator}/>
             <p>Обо мне: {aboutMe}</p>
             <p>Ищу работу: {lookingForAJob ? 'да' : 'нет'}</p>
-            <p>Кем хочу быть: {lookingForAJobDescription}</p>
+            {lookingForAJob && <p>Кем хочу быть: {lookingForAJobDescription}</p>}
             <p>Мои контакты:</p>
             <ul>
                 <li>Facebook: <a href={`${facebook}`} target='_blank'>{facebook}</a></li>
@@ -23,8 +52,6 @@ const ProfileInfo = ({profile, status, setUserStatusThunkCreator}) => {
                 <li>Instagram: <a href={`${instagram}`} target='_blank'>{instagram === null ? "нет" : instagram}</a></li>
                 <li>Website: <a href={website === null ? '#!' : `${website}`} target='_blank'>{website === null ? "нет" : website}</a></li>
             </ul>
-        </div>
+        </>
     )
-};
-
-export default ProfileInfo;
+}

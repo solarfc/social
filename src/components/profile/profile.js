@@ -2,10 +2,10 @@ import React from "react";
 import PostContainer from "../posts";
 import ProfileInfo from "./profile-info";
 
-const Profile = ({profile, status, setUserStatusThunkCreator}) => {
+const Profile = ({isOwner, profile, status, setUserStatusThunkCreator, savePhotoThunkCreator, saveProfileThunkCreator}) => {
     return (
         <div>
-            <ProfileInfo profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator}/>
+            <ProfileInfo isOwner={isOwner} profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} savePhotoThunkCreator={savePhotoThunkCreator} saveProfileThunkCreator={saveProfileThunkCreator}/>
             <PostContainer />
         </div>
     )

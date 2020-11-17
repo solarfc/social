@@ -69,3 +69,21 @@ export const updateStatus = (status) => {
             .then(response => response.config)
     )
 };
+
+export const savePhoto = (file) => {
+    let formData = new FormData();
+    formData.append("image", file);
+    return (
+        instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    )
+}
+
+export const saveProfile = (profile) => {
+    return (
+        instance.put(`profile`, profile)
+    )
+}
