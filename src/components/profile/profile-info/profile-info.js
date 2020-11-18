@@ -19,7 +19,14 @@ const ProfileInfo = ({isOwner, profile, status, setUserStatusThunkCreator, saveP
     };
 
     const onSubmit = (formData) => {
-        saveProfileThunkCreator(formData)
+        saveProfileThunkCreator(formData);
+        setEditMode(false);
+        // console.log(formData);
+        // saveProfileThunkCreator(formData).then(
+        //     () => {
+        //         setEditMode(false);
+        //     }
+        // );
     }
 
     const {photos: {small, large}} = profile;
@@ -28,7 +35,7 @@ const ProfileInfo = ({isOwner, profile, status, setUserStatusThunkCreator, saveP
         <div>
             <img src={small || `https://psihologion.ru/upload/032/u3205/000/82c7100b.jpg`} alt=""/>
             {isOwner && <div><input type="file" onChange={onMainPhotoSelected}/></div>}
-            {editMode ? <ProfileDataForm status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} onSubmit={onSubmit}/> : <ProfileData profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
+            {editMode ? <ProfileDataForm initialValues={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} onSubmit={onSubmit}/> : <ProfileData profile={profile} status={status} setUserStatusThunkCreator={setUserStatusThunkCreator} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
         </div>
     )
 };

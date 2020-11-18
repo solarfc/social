@@ -9,3 +9,7 @@ export const userId = (state) => {
 export const isAuth = (state) => {
     return state.auth.isAuth;
 };
+//
+// export const captchaUrl = (state) => {
+//     return state.auth.captchaUrl;
+// }

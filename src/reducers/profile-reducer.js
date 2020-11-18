@@ -80,13 +80,11 @@ export const savePhotoThunkCreator = (file) => async (dispatch) => {
     }
 }
 
-export const saveProfileThunkCreator = (profile) => async (dispatch) => {
+export const saveProfileThunkCreator = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.data.id;
     let data = await saveProfile(profile);
-    // debugger;
-    console.log(data);
-    if(data.resultCode === 0) {
-        // dispatch(setUserProfile(data))
-    }
+    // dispatch(setUserProfile(profile));
+    dispatch(setUserProfileThunkCreator(userId));
 }
 
 const profileReducer = (state = initialState, action) => {

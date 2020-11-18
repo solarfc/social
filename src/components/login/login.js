@@ -8,8 +8,7 @@ import {Redirect} from "react-router-dom";
 import "./login.css"
 import {auth} from "../../reducers/auth-selecros";
 
-const LoginForm = ({handleSubmit, error}) => {
-
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     const formError = error ? <div className="some-error">{error}</div> : null;
 
     return (
@@ -19,6 +18,12 @@ const LoginForm = ({handleSubmit, error}) => {
             <div className="form-group">
                 <Field name="rememberMe" type="checkbox" component="input"/> remember me
             </div>
+            {captchaUrl &&
+                <div>
+                    <img src={captchaUrl} alt=""/>
+                    <Field name="captcha" type="text" component={Input}/>
+                </div>
+            }
             <div className="form-group">
                 <button type={"submit"}>Log In</button>
             </div>
@@ -29,11 +34,11 @@ const LoginForm = ({handleSubmit, error}) => {
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
-const Login = ({auth: {isAuth}, loginUserThunkCreator}) => {
+const Login = ({auth: {isAuth, captchaUrl}, loginUserThunkCreator}) => {
 
     const onSubmit = (formData) => {
-        const {email, password, rememberMe} = formData;
-        loginUserThunkCreator(email, password, rememberMe);
+        const {email, password, rememberMe, captcha} = formData;
+        loginUserThunkCreator(email, password, rememberMe, captcha);
     };
 
     if(isAuth) {
@@ -43,7 +48,7 @@ const Login = ({auth: {isAuth}, loginUserThunkCreator}) => {
     return (
         <div>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
         </div>
     )
 };

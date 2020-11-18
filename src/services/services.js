@@ -36,9 +36,9 @@ export const setUser = () => {
     )
 };
 
-export const login = (email, password, rememberMe = false) => {
+export const login = (email, password, rememberMe = false, captcha) => {
     return (
-        instance.post(`auth/login`, {email, password, rememberMe})
+        instance.post(`auth/login`, {email, password, rememberMe, captcha})
             .then(response => response)
     )
 };
@@ -80,10 +80,16 @@ export const savePhoto = (file) => {
             }
         })
     )
-}
+};
 
 export const saveProfile = (profile) => {
     return (
         instance.put(`profile`, profile)
     )
-}
+};
+
+export const getCaptcha = () => {
+    return (
+        instance.get(`security/get-captcha-url`)
+    )
+};

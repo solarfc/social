@@ -8,12 +8,15 @@ const ProfileDataForm = ({handleSubmit, error, status, setUserStatusThunkCreator
     return (
         <form action="" onSubmit={handleSubmit}>
             {isOwner && <button onClick={() => {}}>save</button>}
-            <Field name="name" type="text" component={Input} validate={[required]} placeholder="Ваше имя" />
-            <Field name="job" type="checkbox" component={Input}/>
+            <h1>Имя: <Field name="fullName" type="text" component={Input} validate={[required]} placeholder="Ваше имя" /></h1>
             <Status status={status} setUserStatusThunkCreator={setUserStatusThunkCreator}/>
-            {/*<p>Обо мне: {aboutMe}</p>*/}
-            {/*<p>Ищу работу: {lookingForAJob ? 'да' : 'нет'}</p>*/}
-            {/*{lookingForAJob && <p>Кем хочу быть: {lookingForAJobDescription}</p>}*/}
+            <div><p>Обо мне: </p><Field name="aboutMe" type="text" component={Input} placeholder=""/></div>
+            <div><p>Ищу работу: </p><Field name="lookingForAJob" type="checkbox" component={Input}/></div>
+            <div><p>Кем хочу быть:</p><Field name="lookingForAJobDescription" type="text" component={Input}/></div>
+            <p>Мои контакты:</p>
+            <ul>
+                <li>Facebook <Field name="contacts.facebook" type="text" component={Input}/></li>
+            </ul>
             {/*<p>Мои контакты:</p>*/}
             {/*<ul>*/}
             {/*    <li>Facebook: <a href={`${facebook}`} target='_blank'>{facebook}</a></li>*/}
